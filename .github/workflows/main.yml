@@ -24,6 +24,8 @@ jobs:
 
       - name: Build App
         run: npm start build
+        env:
+          DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
