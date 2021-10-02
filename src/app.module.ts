@@ -19,7 +19,7 @@ console.log(process.env)
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
-        console.log("useFactory config: ", config)
+        console.log("useFactory config: ", config.get<TypeOrmModuleOptions>('database.config'))
         return config.get<TypeOrmModuleOptions>('database.config')
       },
     }),
