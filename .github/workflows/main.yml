@@ -24,6 +24,13 @@ jobs:
 
       - name: Build App
         run: npm start build
+        env:
+          DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
+          RDS_DB_NAME: ${{ secrets.RDS_DB_NAME }}
+          RDS_HOSTNAME: ${{ secrets.RDS_HOSTNAME }}
+          RDS_PASSWORD: ${{ secrets.RDS_PASSWORD }}
+          RDS_PORT: ${{ secrets.RDS_PORT }}
+          RDS_USERNAME: ${{ secrets.RDS_USERNAME }}
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
