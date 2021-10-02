@@ -5,8 +5,6 @@ import { CategoriesModule } from './categories/categories.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from './config/database.config';
 
-console.log(process.env)
-
 @Module({
   imports: [
     CategoriesModule,
