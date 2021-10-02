@@ -1,30 +1,40 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
+import { join } from 'path';
+
+const {
+  DATABASE_TYPE,
+  RDS_HOSTNAME,
+  RDS_PORT,
+  RDS_USERNAME,
+  RDS_PASSWORD,
+  RDS_DB_NAME
+} = process.env
+
+console.log(process.env)
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env.local',
-    }),
     CategoriesModule,
     ProductsModule,
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],      
-      useFactory: (configService: ConfigService) => ({
-        type: configService.get<string>('DATABASE_TYPE') as any,
-        host: configService.get<string>('RDS_HOSTNAME'),
-        port: parseInt(configService.get<string>('RDS_PORT')),
-        username: configService.get<string>('RDS_USERNAME'),
-        password: configService.get<string>('RDS_PASSWORD'),
-        database: configService.get<string>('RDS_DB_NAME'),
-        entities: [`${__dirname}/**/*.entity{.ts,.js}`],
-        synchronize: true,
-      }),
-      inject: [ConfigService],
+    TypeOrmModule.forRoot({
+      type: DATABASE_TYPE as any,
+      host: RDS_HOSTNAME,
+      port: parseInt(RDS_PORT),
+      username: RDS_USERNAME,
+      password: RDS_PASSWORD,
+      database: RDS_DB_NAME,
+      entities: [`${__dirname}/**/*.entity{.ts,.js}`],
+      autoLoadEntities: true,
+      migrationsRun: true,
+      migrations: [join(__dirname, '../migration/**/*{.ts,.js}')],
+      migrationsTableName: 'migrations_typeorm',
+      cli: {
+        migrationsDir: 'src/migration',
+      },
+      synchronize: false,
     }),
   ],
 })
