@@ -71,11 +71,11 @@ Flower & Gardening Ecommerce API REST
     file: .env.local
 
     DATABASE_TYPE=your_database_type
-    DATABASE_HOST=your_database_host
-    DATABASE_PORT=your_database_port
-    DATABASE_USERNAME=your_database_username
-    DATABASE_PASSWORD=your_database_password
-    DATABASE_NAME=your_database_name
+    RDS_HOSTNAME=your_database_host
+    RDS_PORT=your_database_port
+    RDS_USERNAME=your_database_username
+    RDS_PASSWORD=your_database_password
+    RDS_DB_NAME=your_database_name
     ```
 
 <!-- USAGE EXAMPLES -->
