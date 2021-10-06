@@ -5,20 +5,20 @@ import { join } from 'path';
 function typeormModuleOptions(): TypeOrmModuleOptions {
     const {
         DATABASE_TYPE,
-        RDS_HOSTNAME,
-        RDS_PORT,
-        RDS_USERNAME,
-        RDS_PASSWORD,
-        RDS_DB_NAME
+        DATABASE_HOSTNAME,
+        DATABASE_PORT,
+        DATABASE_USERNAME,
+        DATABASE_PASSWORD,
+        DATABASE_NAME
     } = process.env
     console.log("PROCESS.ENV: ",process.env)
     return {
         type: DATABASE_TYPE as any,
-        host: RDS_HOSTNAME,
-        port: parseInt(RDS_PORT),
-        username: RDS_USERNAME,
-        password: RDS_PASSWORD,
-        database: RDS_DB_NAME,
+        host: DATABASE_HOSTNAME,
+        port: parseInt(DATABASE_PORT),
+        username: DATABASE_USERNAME,
+        password: DATABASE_PASSWORD,
+        database: DATABASE_NAME,
         entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
         autoLoadEntities: true,
         migrationsRun: true,
