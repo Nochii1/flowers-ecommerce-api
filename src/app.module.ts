@@ -4,6 +4,7 @@ import { ProductsModule } from './products/products.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from './config/database.config';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -21,5 +22,6 @@ import databaseConfig from './config/database.config';
       },
     }),
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
