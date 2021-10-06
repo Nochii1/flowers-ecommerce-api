@@ -11,7 +11,7 @@ function typeormModuleOptions(): TypeOrmModuleOptions {
         RDS_PASSWORD,
         RDS_DB_NAME
     } = process.env
-
+    console.log("PROCESS.ENV: ",process.env)
     return {
         type: DATABASE_TYPE as any,
         host: RDS_HOSTNAME,
