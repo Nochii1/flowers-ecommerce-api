@@ -21,7 +21,6 @@ export class Product {
     @Column({ type: 'int', nullable: false })
     discount!: number;
 
-    // @ManyToOne(() => Category, category => category.id, { eager: true })
     @ManyToOne(() => Category, category => category.products)
     category: Category;
 }

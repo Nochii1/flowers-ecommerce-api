@@ -1,7 +1,7 @@
 import { Controller, Get, Res, Version } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Default')
+@ApiTags('Documentation Redirect')
 @Controller()
 export class AppController {
 
