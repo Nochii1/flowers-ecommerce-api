@@ -1,9 +1,15 @@
 import { Controller, Get, Res, Version } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('APP Module')
+@ApiTags('Default')
 @Controller()
 export class AppController {
+
+    /**
+     * Endpoint redirecting to API documentation
+     * @param res Petition response
+     * @returns Redirect to API documentation
+     */
     @Version('0')
     @Get()
     async getDocV0(@Res() res) {

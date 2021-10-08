@@ -2,7 +2,11 @@ import { registerAs } from '@nestjs/config';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 
-function typeormModuleOptions(): TypeOrmModuleOptions {
+/**
+ * Load from the environment variables the configuration for the database typeorm connection
+ * @returns Configuration options for typeorm connection
+ */
+const typeormModuleOptions = (): TypeOrmModuleOptions  => {
     const {
         DATABASE_TYPE,
         DATABASE_HOSTNAME,
@@ -11,7 +15,7 @@ function typeormModuleOptions(): TypeOrmModuleOptions {
         DATABASE_PASSWORD,
         DATABASE_NAME
     } = process.env
-    console.log("PROCESS.ENV: ",process.env)
+
     return {
         type: DATABASE_TYPE as any,
         host: DATABASE_HOSTNAME,

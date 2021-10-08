@@ -2,6 +2,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 import { getDocApiVersion, getUrlApiVersion } from './utils/proyect-version';
 
+/**
+ * Generates the API documentation complying with the OpenAPI specification
+ * @param app Nestjs Application
+ */
 export const initSwagger = (app: INestApplication) => {
     const urlApiVersion = getUrlApiVersion()
     const docApiVersion = getDocApiVersion()

@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Category } from 'src/categories/entities/categories.entity';
 import { Like, Repository } from 'typeorm';
 import { SearchProductsDto } from './dtos/search-products.dto';
 import { Product } from './entities/products.entity';
@@ -9,11 +8,13 @@ import { Product } from './entities/products.entity';
 export class ProductsService {
     constructor(
         @InjectRepository(Product)
-        private readonly productsRepository:Repository<Product>,
-        @InjectRepository(Category)
-        private readonly categoriesRepository:Repository<Category>,
+        private readonly productsRepository:Repository<Product>
     ){}
 
+    /**
+     * Gets and counts the products quantity from the database
+     * @returns List and count of products saved in the database
+     */
     async getAll() {
         const [result, count] = await this.productsRepository.findAndCount(
             {
@@ -29,10 +30,15 @@ export class ProductsService {
         } 
     }
 
-    async getAllBySearch(search:string, dto:SearchProductsDto){
+    /**
+     * Gets and counts the filtered products from the database using the search parameter
+     * @param dto Search parameter to filter the products from the database
+     * @returns List and count of products saved in the database filtered by the search parameter
+     */
+    async getAllBySearch(dto:SearchProductsDto){
         const [result, count] = await this.productsRepository.findAndCount(
             {
-                where: { name: Like('%' + search + '%') }, order: { name: "DESC" },
+                where: { name: Like('%' + dto + '%') }, order: { name: "DESC" },
                 relations:['category'],
             }
         );

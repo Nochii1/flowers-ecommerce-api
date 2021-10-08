@@ -10,7 +10,18 @@ export class CategoriesService {
         private readonly categoriesRepository:Repository<Category>,
     ){}
 
+    /**
+     * Gets and counts the categories quantity from the database
+     * @returns List and count of categories saved in the database
+     */
     async getAll() {
-        return await this.categoriesRepository.find()
+        const [result, count] = await this.categoriesRepository.findAndCount();
+    
+        return {
+            response: {
+                data: result,
+                count: count
+            }
+        }
     }
 }

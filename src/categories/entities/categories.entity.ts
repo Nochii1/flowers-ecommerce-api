@@ -1,6 +1,9 @@
 import { Product } from 'src/products/entities/products.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
+/**
+ * Schema of the database categories entity
+ */
 @Entity('categories')
 export class Category {
     @PrimaryGeneratedColumn()

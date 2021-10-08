@@ -3,7 +3,7 @@
   <h2 align="center">Flowers Ecommerce API</h2>
 
   <p align="center">
-    <a href="https://flowers-ecommerce-api.herokuapp.com/api/v0/docs/">View Documentation</a>
+    <a href="http://flowersecommerceapi-env-1.eba-mkf539ta.us-west-1.elasticbeanstalk.com/api/v0/docs/">View Documentation</a>
     ·
     <a href="https://github.com/Nochii1/flowers-ecommerce-api/issues">Report Bug</a>
     ·
@@ -38,6 +38,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About
 
+[![Flowers Ecommerce API][api-screenshot]][docs_url]
+
 Flower & Gardening Ecommerce API REST
 
 ### Built With
@@ -71,20 +73,23 @@ Flower & Gardening Ecommerce API REST
     file: .env.local
 
     DATABASE_TYPE=your_database_type
-    RDS_HOSTNAME=your_database_host
-    RDS_PORT=your_database_port
-    RDS_USERNAME=your_database_username
-    RDS_PASSWORD=your_database_password
-    RDS_DB_NAME=your_database_name
+    DATABASE_HOSTNAME=your_database_host
+    DATABASE_PORT=your_database_port
+    DATABASE_USERNAME=your_database_username
+    DATABASE_PASSWORD=your_database_password
+    DATABASE_NAME=your_database_name
     ```
 
 <!-- USAGE EXAMPLES -->
 ### Running project
-* dev
+* development
     ```sh
+    $ npm run start
+
+    # Or in watch mode
     $ npm run start:dev
     ```
-* prod
+* production
     ```sh
     $ npm run build && npm run start:prod
     ```
@@ -110,6 +115,6 @@ Project Link: [https://github.com/Nochii1/flowers-ecommerce-api][github_url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [issues-url]: https://github.com/Nochii1/flowers-ecommerce-api/issues
-<!--  [product-screenshot]: null -->
-<!-- [docs_url]: https://flowers-ecommerce-api.herokuapp.com/api/v0/docs/ -->
+[api-screenshot]: public/assets/api-screenshot.png
+[docs_url]: http://flowersecommerceapi-env-1.eba-mkf539ta.us-west-1.elasticbeanstalk.com/api/v0/docs
 [github_url]: https://github.com/Nochii1/flowers-ecommerce-api
