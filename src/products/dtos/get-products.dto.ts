@@ -27,7 +27,7 @@ export class GetProductsDto {
     })
     @IsString()
     @IsOptional()
-    search?: string;
+    search?: string = '';
 
     @ApiProperty({
         required:false,

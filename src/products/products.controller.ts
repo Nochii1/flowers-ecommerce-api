@@ -20,7 +20,7 @@ export class ProductsController {
     @Get()
     async index( @Query() dto: GetProductsDto ) {
         const { limit, page } = dto
-
+        
         return this.productsService.paginate({
             page: page,
             limit: limit > 100 ? 100 : limit,

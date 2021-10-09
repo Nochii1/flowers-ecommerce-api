@@ -24,12 +24,12 @@ export class ProductsService {
      */
     async paginate(options: IPaginationOptions, dto: GetProductsDto) {
         const {search,category,orderPrice} = dto
-
+        
         return paginate<Product>(this.productsRepository, options, {
             loadRelationIds:true,
             where: [
                 { name: Like(`%${search}%`) },
-                { category: { id: category } }
+                { category: category }
             ],
             order:{
                 price: orderPrice
