@@ -5,6 +5,7 @@ import {
     IsString
 } from 'class-validator';
 import { OrderBy } from 'src/shared/enums/order-by.enum';
+import { ProductsFilters } from '../enums/products-filters.enum';
 
 /**
  * Validation scheme for get products requests
@@ -44,4 +45,14 @@ export class GetProductsDto {
     })
     @IsOptional()
     category?: number;
+
+    @ApiProperty({
+        required:false,
+        enum: ProductsFilters
+    })
+    @IsEnum(ProductsFilters, {
+        message: `Invalid option. Valids options are 'sales'`,
+    })
+    @IsOptional()
+    filters?: "sales" | undefined;
 }
