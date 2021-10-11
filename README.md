@@ -24,12 +24,12 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#running-project">Running project</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -78,6 +78,7 @@ Flower & Gardening Ecommerce API REST
     DATABASE_USERNAME=your_database_username
     DATABASE_PASSWORD=your_database_password
     DATABASE_NAME=your_database_name
+    BASE_URL=http://localhost:3000/api/v0
     ```
 
 <!-- USAGE EXAMPLES -->
