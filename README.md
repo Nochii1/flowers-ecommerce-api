@@ -92,7 +92,9 @@ Flower & Gardening Ecommerce API REST
     ```
 * production
     ```sh
-    $ npm run build && npm run start:prod
+    $ npm run build
+    #and then
+    $ npm run start:prod
     ```
 
 <!-- ROADMAP -->
