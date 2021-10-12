@@ -25,13 +25,13 @@ const typeormModuleOptions = (): TypeOrmModuleOptions  => {
         database: DATABASE_NAME,
         entities: [join(__dirname, '../**/**/*entity{.ts,.js}')],
         autoLoadEntities: true,
-        migrationsRun: true,
+        migrationsRun: false,
         migrations: [join(__dirname, '../migration/**/*{.ts,.js}')],
         migrationsTableName: 'migrations_typeorm',
         cli: {
             migrationsDir: 'src/migration',
         },
-        synchronize: true,
+        synchronize: false,
     }
 }
 

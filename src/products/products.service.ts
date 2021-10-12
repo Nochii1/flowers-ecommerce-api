@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Like, MoreThan, Repository } from 'typeorm';
 import {
     paginate,
-    Pagination,
     IPaginationOptions,
 } from 'nestjs-typeorm-paginate';
 import { Product } from './entities/products.entity';
