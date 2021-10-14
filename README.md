@@ -40,7 +40,7 @@
 
 [![Flowers Ecommerce API][api-screenshot]][docs_url]
 
-Flower & Gardening Ecommerce API REST
+Flowers Ecommerce API REST
 
 ### Built With
 
