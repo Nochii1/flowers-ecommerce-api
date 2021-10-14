@@ -12,7 +12,7 @@ export const initSwagger = (app: INestApplication) => {
 
     const swaggerConfig = new DocumentBuilder()
         .setTitle('Flowers Ecommerce API')
-        .setDescription('Flower & Gardening Ecommerce API REST.')
+        .setDescription('Flowers Ecommerce API REST.')
         .setVersion(docApiVersion)
         .build();
     
